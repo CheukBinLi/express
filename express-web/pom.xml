@@ -101,6 +101,11 @@
 
 		<dependency>
 			<groupId>com</groupId>
+			<artifactId>express-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com</groupId>
 			<artifactId>express-code</artifactId>
 			<version>${project.version}</version>
 		</dependency>
