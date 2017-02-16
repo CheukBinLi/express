@@ -9,7 +9,7 @@ import java.util.List;
  * @date 2017年1月19日
  * @see 物流轨迹即时查询
  */
-public class ExpressOrderModel implements BaseExpressModel {
+public class ExpressOrderModel extends BaseExpressModel {
 
 	private static final long serialVersionUID = 1L;
 	private String OrderCode;// 订单编号 O

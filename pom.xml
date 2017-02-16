@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>com.cheuks.bin</groupId>
 			<artifactId>original-annotation</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${original.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.cheuks.bin</groupId>

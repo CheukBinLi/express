@@ -7,7 +7,7 @@ package com.express.common.model;
  * @date 2017年1月19日
  * @see 预约取件
  */
-public class AppointmentOrderModel implements BaseExpressModel {
+public class AppointmentOrderModel extends BaseExpressModel {
 
 	private static final long serialVersionUID = 1L;
 

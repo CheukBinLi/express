@@ -2,7 +2,7 @@ package com.express.common.model;
 
 import java.io.Serializable;
 
-public class AddServiceModel implements Serializable {
+public class AddServiceModel implements Serializable, ServiceModelType {
 
 	private static final long serialVersionUID = 1L;
 	private String Name;// 增值服务名称 O

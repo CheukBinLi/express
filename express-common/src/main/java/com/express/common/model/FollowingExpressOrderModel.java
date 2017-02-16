@@ -9,7 +9,7 @@ import java.util.List;
  * @date 2017年1月19日
  * @see 订阅
  */
-public class FollowingExpressOrderModel implements BaseExpressModel {
+public class FollowingExpressOrderModel extends BaseExpressModel {
 	private static final long serialVersionUID = 1L;
 	private String CallBack;// 用户自定义回调信息 O
 	private String MemberID;// 会员标识(备用字段) O

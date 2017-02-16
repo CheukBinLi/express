@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cheuks.bin.original.cache.FstCacheSerialize;
+import com.cheuks.bin.original.common.util.CollectionUtil;
+import com.cheuks.bin.original.reflect.rmi.DefaultRmiBeanFactory;
+import com.cheuks.bin.original.reflect.rmi.NettyServer;
+import com.cheuks.bin.original.reflect.rmi.RmiBeanFactory;
+import com.cheuks.bin.original.reflect.rmi.net.netty.NettyHandleServiceFactory;
 import com.express.code.entity.T1;
 import com.express.code.service.T1Service;
 import com.express.common.ExpressFactory;
@@ -53,9 +59,33 @@ public class ExpressController {
 	@RequestMapping(value = { "expressOrder" }, method = { RequestMethod.GET })
 	public void expressOrder(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
+		Thread t = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				RmiBeanFactory rmiBeanFactory = DefaultRmiBeanFactory.newInstance();
+				rmiBeanFactory.init(CollectionUtil.newInstance().toMap("scan", "com.express"));
+				NettyServer ns = new NettyServer();
+				NettyHandleServiceFactory handleServiceFactory = NettyHandleServiceFactory.newInstance(8);
+
+				ns.setPoolSize(5).setMessageHandle(handleServiceFactory).setPort(10087).setRmiBeanFactory(rmiBeanFactory).setCacheSerialize(new FstCacheSerialize());
+				try {
+					ns.run();
+				} catch (NullPointerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		t.start();
+
 		BaseExpressModel baseExpressModel = expressFactory.expressOrder(new ExpressOrderModel().setShipperCode("ZT").setLogisticCode("110AAAAAAAAAA123123132"));
 
 		response.getOutputStream().write(("result:" + new Gson().toJson(baseExpressModel)).getBytes());
+
 	}
 
 }

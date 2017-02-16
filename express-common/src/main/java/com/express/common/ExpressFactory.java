@@ -2,7 +2,7 @@ package com.express.common;
 
 import com.express.common.model.BaseExpressModel;
 
-public interface ExpressFactory {
+public interface ExpressFactory<T extends BaseExpressModel> {
 
 	/***
 	 * 物流轨迹即时查询
@@ -10,10 +10,10 @@ public interface ExpressFactory {
 	 * @param baseExpressModel
 	 * @return
 	 */
-	BaseExpressModel expressOrder(BaseExpressModel baseExpressModel) throws Throwable;
+	BaseExpressModel expressOrder(T baseExpressModel) throws Throwable;
 
 	// BaseModel followingExpressOrder(BaseExpressModel baseExpressModel);
 
-	BaseExpressModel createElectronicsOrder(BaseExpressModel baseExpressModel) throws Throwable;
+	BaseExpressModel createElectronicsOrder(T baseExpressModel) throws Throwable;
 
 }

@@ -7,11 +7,11 @@ public class CommodityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String GoodsName;// 商品名称 R
 	private String GoodsCode;// 商品编码 O
-	private String Goodsquantity;// Int 商品数量 O
+	private int Goodsquantity;// Int 商品数量 O
 	private double GoodsPrice; // 商品价格 O
-	private String GoodsWeight;// 商品重量 O
+	private double GoodsWeight;// 商品重量 O
 	private String GoodsDesc;// 商品描述 O
-	private String GoodsVol;// 商品体积m3 O
+	private double GoodsVol;// 商品体积m3 O
 
 	public String getGoodsName() {
 		return GoodsName;
@@ -31,11 +31,11 @@ public class CommodityModel implements Serializable {
 		return this;
 	}
 
-	public String getGoodsquantity() {
+	public int getGoodsquantity() {
 		return Goodsquantity;
 	}
 
-	public CommodityModel setGoodsquantity(String goodsquantity) {
+	public CommodityModel setGoodsquantity(int goodsquantity) {
 		Goodsquantity = goodsquantity;
 		return this;
 	}
@@ -49,11 +49,11 @@ public class CommodityModel implements Serializable {
 		return this;
 	}
 
-	public String getGoodsWeight() {
+	public double getGoodsWeight() {
 		return GoodsWeight;
 	}
 
-	public CommodityModel setGoodsWeight(String goodsWeight) {
+	public CommodityModel setGoodsWeight(double goodsWeight) {
 		GoodsWeight = goodsWeight;
 		return this;
 	}
@@ -67,11 +67,11 @@ public class CommodityModel implements Serializable {
 		return this;
 	}
 
-	public String getGoodsVol() {
+	public double getGoodsVol() {
 		return GoodsVol;
 	}
 
-	public CommodityModel setGoodsVol(String goodsVol) {
+	public CommodityModel setGoodsVol(double goodsVol) {
 		GoodsVol = goodsVol;
 		return this;
 	}
